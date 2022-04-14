@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthController (e2e) POST /auth/signin negative should handle missing data 1`] = `
+Array [
+  "email should not be empty",
+  "email must be an email",
+  "password should not be empty",
+  "password must be a string",
+]
+`;
+
+exports[`AuthController (e2e) POST /auth/signup negative should handle missing data 1`] = `
+Array [
+  "email should not be empty",
+  "email must be an email",
+  "password should not be empty",
+  "password must be a string",
+]
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookmarkController (e2e) POST /bookmarks negative should handle missing data 1`] = `
+Array [
+  "title should not be empty",
+  "title must be a string",
+  "link should not be empty",
+  "link must be a string",
+]
+`;
