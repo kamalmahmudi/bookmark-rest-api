@@ -19,7 +19,7 @@ export const getApp = async (): Promise<
     })
   )
   await app.init()
-  const prisma = app.get(PrismaService)
+  const prisma = app.get<PrismaService>(PrismaService)
 
   return [app, prisma]
 }

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookmarkController (e2e) POST /bookmarks negative should handle missing data 1`] = `
+exports[`BookmarkController (e2e) POST /bookmarks should handle missing data 1`] = `
 Array [
   "title should not be empty",
   "title must be a string",

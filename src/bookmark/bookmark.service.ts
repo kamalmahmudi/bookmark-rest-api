@@ -4,7 +4,7 @@ import { CreateBookmarkDto, EditBookmarkDto } from './dto'
 
 @Injectable()
 export class BookmarkService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   getBookmarks(userId: number) {
     return this.prisma.bookmark.findMany({

@@ -16,54 +16,50 @@ describe('UserController (e2e)', () => {
   })
 
   describe('GET /users/me', () => {
-    describe('negative', () => {
-      it('should handle missing auth', async () => {
-        await request(app.getHttpServer()).get('/users/me').expect(401)
-      })
+    // negative testing
+    it('should handle missing auth', async () => {
+      await request(app.getHttpServer()).get('/users/me').expect(401)
     })
 
-    describe('positive', () => {
-      it('should return correct data', async () => {
-        const res = await request(app.getHttpServer())
-          .get('/users/me')
-          .auth(accessToken, { type: 'bearer' })
-          .expect(200)
-        expect(res.body.id).toBeDefined()
-        expect(res.body.createdAt).toBeDefined()
-        expect(res.body.updatedAt).toBeDefined()
-        expect(res.body.email).toBe('someone@someplace.com')
-        expect(res.body.firstName).toBe(null)
-        expect(res.body.lastName).toBe(null)
-      })
+    // positive testing
+    it('should return correct data', async () => {
+      const res = await request(app.getHttpServer())
+        .get('/users/me')
+        .auth(accessToken, { type: 'bearer' })
+        .expect(200)
+      expect(res.body.id).toBeDefined()
+      expect(res.body.createdAt).toBeDefined()
+      expect(res.body.updatedAt).toBeDefined()
+      expect(res.body.email).toBe('someone@someplace.com')
+      expect(res.body.firstName).toBe(null)
+      expect(res.body.lastName).toBe(null)
     })
   })
 
   describe('PATCH /users', () => {
-    describe('negative', () => {
-      it('should handle missing auth', async () => {
-        await request(app.getHttpServer()).patch('/users').expect(401)
-      })
+    // negative testing
+    it('should handle missing auth', async () => {
+      await request(app.getHttpServer()).patch('/users').expect(401)
     })
 
-    describe('positive', () => {
-      it('should handle correct dto', async () => {
-        await request(app.getHttpServer())
-          .patch('/users')
-          .auth(accessToken, { type: 'bearer' })
-          .send({ email: 'john@doe.com' })
-          .expect(200)
-        const res = await request(app.getHttpServer())
-          .patch('/users')
-          .auth(accessToken, { type: 'bearer' })
-          .send({ firstName: 'John', lastName: 'Doe' })
-          .expect(200)
-        expect(res.body.id).toBeDefined()
-        expect(res.body.createdAt).toBeDefined()
-        expect(res.body.updatedAt).toBeDefined()
-        expect(res.body.email).toBe('john@doe.com')
-        expect(res.body.firstName).toBe('John')
-        expect(res.body.lastName).toBe('Doe')
-      })
+    // positive testing
+    it('should handle correct dto', async () => {
+      await request(app.getHttpServer())
+        .patch('/users')
+        .auth(accessToken, { type: 'bearer' })
+        .send({ email: 'john@doe.com' })
+        .expect(200)
+      const res = await request(app.getHttpServer())
+        .patch('/users')
+        .auth(accessToken, { type: 'bearer' })
+        .send({ firstName: 'John', lastName: 'Doe' })
+        .expect(200)
+      expect(res.body.id).toBeDefined()
+      expect(res.body.createdAt).toBeDefined()
+      expect(res.body.updatedAt).toBeDefined()
+      expect(res.body.email).toBe('john@doe.com')
+      expect(res.body.firstName).toBe('John')
+      expect(res.body.lastName).toBe('Doe')
     })
   })
 })
