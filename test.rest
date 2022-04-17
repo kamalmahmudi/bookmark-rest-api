@@ -19,7 +19,7 @@ Content-Type: application/json
 
 {
     "email": "someone@someplace.com",
-    "password": "rahasia"
+    "password": ""
 }
 
 ###

@@ -3,13 +3,13 @@ import { IsNotEmpty, IsOptional, IsString } from 'class-validator'
 export class CreateBookmarkDto {
   @IsString()
   @IsNotEmpty()
-  title: string
+  readonly title: string
 
   @IsString()
   @IsOptional()
-  description?: string
+  readonly description?: string
 
   @IsString()
   @IsNotEmpty()
-  link: string
+  readonly link: string
 }
